@@ -24,11 +24,11 @@ if (isset($_POST['login-submit'])) {
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             if ($row = mysqli_fetch_assoc($result)) {
-                $pwdCheck = password_verify($pass, $row['pass']);
+                $pwdCheck = password_verify($pass,$row['pass']);
                 if ($pwdCheck == false) {
                   echo "<script type = \"text/javascript\">
                   alert(\"Uneli ste pogrešnu lozinku.\");
-                  window.location = (\"../signup.php\")
+                  window.location = (\"../login.php\")
                   </script>";
                     exit();
                 } else if ($pwdCheck == 1) {
