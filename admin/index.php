@@ -17,6 +17,13 @@
                 window.location.href = 'changeStatus.php?id=' +id;
          }
     }
+    function sendMessage(id){
+        if(!id){
+            window.alert("Izaberite poruku kojoj saljete odgovor");
+        } else {
+            window.location.href = 'sendReply.php?id=' +id;
+        }
+    }
     </script>
 </head>
 
@@ -65,25 +72,27 @@ include 'menu.php';
                                     <th>Poruka</th>
                                     <th>Vreme</th>
                                     <th>Status</th>
-                                    <th width="110" class="ac">Kontrole</th>
+                                    <th width="150" class="ac">Kontrole</th>
                                 </tr>
                                 <?php
 include '../includes/config.php';
 $select = "SELECT * FROM message";
 $result = $conn->query($select);
 while ($row = $result->fetch_assoc()) {
-    ?>                         <form action="" method="POST">
+    ?>                         <form action="sendReply.php" method="POST">
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td>
                                        <?php echo $row['message'] ?>
                                     </td>
-                                    <td width="150"><?php echo $row['time']?></td>
+                                    <td><?php echo $row['time']?></td>
                                     <td><?php echo $row['status']?></td>
                                     <td>
                                  <a href="javascript:sureToApprove(<?php echo $row['msg_id']; ?>)"
                                             class="ico del">Obrisi</a>
-                                <a href="javascript:changeStatus(<?php echo $row['msg_id']; ?>)" class="ico edit">Oznaci</a>
+                                <a href="javascript:changeStatus(<?php echo $row['msg_id']; ?>)" class="ico edit">Oznaci</a></br>
+                            <a href="javascript:sendMessage(<?php echo $row['msg_id'];?>)" class="add-button"><span>Posalji odgovor</span></a>
+                            <div class="cl">&nbsp;</div>
                                     </td>
                                 </tr>
                             </form>
@@ -97,27 +106,6 @@ while ($row = $result->fetch_assoc()) {
 
                     </div>
 
-                </div>
-
-                <div id="sidebar">
-
-                    <div class="box">
-
-                        <div class="box-head">
-                            <h2>Management</h2>
-                        </div>
-
-                        <div class="box-content">
-                            <a href="#" class="add-button"><span>Posalji odgovor</span></a>
-                            <div class="cl">&nbsp;</div>
-
-                            <p class="select-all"><input type="checkbox" class="checkbox" /><label>selektuj sve</label>
-                            </p>
-                            <p><a href="#">Obrisi selektovano</a></p>
-
-
-                        </div>
-                    </div>
                 </div>
 
                 <div class="cl">&nbsp;</div>
