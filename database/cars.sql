@@ -36,7 +36,7 @@ INSERT INTO `cars` (`car_id`, `car_name`, `car_type`, `image`, `hire_cost`, `cap
 (1, 'Mercedes Benz', 'Coupe', 'car1.jpg', 110000, 5, 'Available'),
 (2, 'Range Rover', 'Mini-SUV', 'car2.jpg', 32000, 6, 'Available'),
 (3, 'Toyota', 'Coupe', 'car3.jpg', 31000, 6, 'Available'),
-(5, 'LandCruiser V8', 'SUV ', 'images (2).jpg', 40000, 5, 'Available'),
+(5, 'Toyota V8', 'SUV ', 'images (2).jpg', 40000, 5, 'Available'),
 (6, 'Hummer', 'SUV', 'sonkort2.png', 46000, 8, 'Available'),
 (7, 'Wedding Limousine', 'Wedding Limousine', 'images (3).jpg', 28000, 10, 'Available');
 

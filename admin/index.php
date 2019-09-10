@@ -12,11 +12,16 @@
             window.location.href = 'delete_msg.php?id=' + id;
         }
     }
+    function changeStatus(id){
+         if(confirm("Promeni u procitano?")){
+                window.location.href = 'changeStatus.php?id=' +id;
+         }
+    }
     </script>
 </head>
 
 <body>
-  
+
     <div id="header">
         <div class="shell">
 
@@ -31,9 +36,9 @@ include 'menu.php';
         <div class="shell">
 
             <div class="small-nav">
-                <a href="index.php">Dashboard</a>
+                <a href="index.php">Komandna tabla</a>
                 <span>&gt;</span>
-                Client Messages
+                Poruke klijenata
             </div>
 
             <br />
@@ -45,7 +50,7 @@ include 'menu.php';
 
                     <div class="box">
                         <div class="box-head">
-                            <h2 class="left">Client Messages</h2>
+                            <h2 class="left">Poruke klijenata</h2>
                             <div class="right">
                                 <label>search messages</label>
                                 <input type="text" class="field small-field" />
@@ -57,94 +62,68 @@ include 'menu.php';
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <th width="13"><input type="checkbox" class="checkbox" /></th>
-                                    <th>Message Content</th>
-                                    <th>Time Send</th>
+                                    <th>Poruka</th>
+                                    <th>Vreme</th>
                                     <th>Status</th>
-                                    <th width="110" class="ac">Content Control</th>
+                                    <th width="110" class="ac">Kontrole</th>
                                 </tr>
                                 <?php
 include '../includes/config.php';
 $select = "SELECT * FROM message";
 $result = $conn->query($select);
 while ($row = $result->fetch_assoc()) {
-    ?>
+    ?>                         <form action="" method="POST">
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" /></td>
                                     <td>
-                                        <h3><a href="#"><?php echo $row['message'] ?></a></h3>
+                                       <?php echo $row['message'] ?>
                                     </td>
-                                    <td><?php echo $row['time'] ?></td>
-                                    <td><a href="#"><?php echo $row['status'] ?></a></td>
-                                    <td><a href="javascript:sureToApprove(<?php echo $row['msg_id']; ?>)"
-                                            class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+                                    <td width="150"><?php echo $row['time']?></td>
+                                    <td><?php echo $row['status']?></td>
+                                    <td>
+                                 <a href="javascript:sureToApprove(<?php echo $row['msg_id']; ?>)"
+                                            class="ico del">Obrisi</a>
+                                <a href="javascript:changeStatus(<?php echo $row['msg_id']; ?>)" class="ico edit">Oznaci</a>
+                                    </td>
                                 </tr>
+                            </form>
                                 <?php
 }
 ?>
                             </table>
 
-
-                            
-                            <div class="pagging">
-                                <div class="left">Showing 1-12 of 44</div>
-                                <div class="right">
-                                    <a href="#">Previous</a>
-                                    <a href="#">1</a>
-                                    <a href="#">2</a>
-                                    <a href="#">3</a>
-                                    <a href="#">4</a>
-                                    <a href="#">245</a>
-                                    <span>...</span>
-                                    <a href="#">Next</a>
-                                    <a href="#">View all</a>
-                                </div>
-                            </div>
-                          
-
                         </div>
                         <h2><input type="submit" onclick="window.print()" value="Print Here" /></h2>
 
                     </div>
-                    <!-- End Box -->
 
                 </div>
-                <!-- End Content -->
 
-                <!-- Sidebar -->
                 <div id="sidebar">
 
-                    <!-- Box -->
                     <div class="box">
 
-                        <!-- Box Head -->
                         <div class="box-head">
                             <h2>Management</h2>
                         </div>
-                        <!-- End Box Head-->
 
                         <div class="box-content">
-                            <a href="#" class="add-button"><span>Send Messages</span></a>
+                            <a href="#" class="add-button"><span>Posalji odgovor</span></a>
                             <div class="cl">&nbsp;</div>
 
-                            <p class="select-all"><input type="checkbox" class="checkbox" /><label>select all</label>
+                            <p class="select-all"><input type="checkbox" class="checkbox" /><label>selektuj sve</label>
                             </p>
-                            <p><a href="#">Delete Selected</a></p>
+                            <p><a href="#">Obrisi selektovano</a></p>
 
 
                         </div>
                     </div>
-                    <!-- End Box -->
                 </div>
-                <!-- End Sidebar -->
 
                 <div class="cl">&nbsp;</div>
             </div>
-            <!-- Main -->
         </div>
     </div>
-    <!-- End Container -->
-
-    <!-- Footer -->
     <div id="footer">
         <div class="shell">
             <span class="left">&copy; <?php echo date("Y"); ?></span>
@@ -153,7 +132,6 @@ while ($row = $result->fetch_assoc()) {
             </span>
         </div>
     </div>
-    <!-- End Footer -->
 </body>
 
 </html>

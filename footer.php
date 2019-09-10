@@ -6,7 +6,6 @@
                     <li>Naša kompanija</li>
                     <li><a href="aboutUs.php">O nama</a></li>
                     <li><a href="uslovi.php">Uslovi korišćenja</a></li>
-                    <li><a href="#">Kontakt</a></li>
                 </ul>
             </li>
 
