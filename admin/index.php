@@ -68,7 +68,6 @@ include 'menu.php';
                         <div class="table">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <th width="13"><input type="checkbox" class="checkbox" /></th>
                                     <th>Poruka</th>
                                     <th>Vreme</th>
                                     <th>Status</th>
@@ -81,8 +80,7 @@ $result = $conn->query($select);
 while ($row = $result->fetch_assoc()) {
     ?>                         <form action="sendReply.php" method="POST">
                                 <tr>
-                                    <td><input type="checkbox" class="checkbox" /></td>
-                                    <td>
+                                    <td style:"text-align=center">
                                        <?php echo $row['message'] ?>
                                     </td>
                                     <td><?php echo $row['time']?></td>
