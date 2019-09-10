@@ -45,6 +45,7 @@ INSERT INTO `cars` (`car_id`, `car_name`, `car_type`, `image`, `hire_cost`, `cap
 CREATE TABLE IF NOT EXISTS client (
     client_id INT(11) NOT NULL AUTO_INCREMENT,
     fname VARCHAR(255) NOT NULL,
+    lname VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     passw LONGTEXT NOT NULL,
     phone INT(11) NOT NULL,
@@ -94,4 +95,3 @@ INSERT INTO `message` (`msg_id`, `client_id`, `message`, `status`, `time`) VALUE
 (2, 0, 'Am happy its working?', 'Unread', '0000-00-00 00:00:00'),
 (3, 0, 'Thanks for that..OK?', 'Unread', '0000-00-00 00:00:00'),
 (5, 0, 'I love this. It worked the way i want...', 'Unread', '2015-08-04 21:45:33');
-

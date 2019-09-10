@@ -59,7 +59,7 @@ include 'header.php';
 
         <body>
             <br><br>
-            <h3>Kontaktirajte nas</h3>
+            <h3 style="margin-left:1%;">Kontaktirajte nas</h3>
 
             <div class="container">
                 <?php
@@ -87,3 +87,6 @@ if (isset($_GET['messageSent'])) {
                     <input type="submit" value="Pošalji" name="submit" style="letter-spacing:1px;">
                 </form>
             </div>
+            <?php
+        require_once 'footer.php';
+        ?>

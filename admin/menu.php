@@ -17,7 +17,7 @@
 			    <li><a href="index.php"><span>Poruke</span></a></li>
 			</ul>
 		</div>
-<?php 
+<?php
 	  }
 
 	  else{

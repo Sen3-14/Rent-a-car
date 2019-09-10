@@ -13,7 +13,7 @@
     <?php
 require_once 'header.php';
 ?> <center>
-  <div class="terms">
+  <div class="terms" style="font-size:20px;">
 <p>
   Rent-a-car je agencija za iznajmljivanje vozila sa sedištem u Nišu. Cilj naše
   agencije je da vrhunskom uslugom i povoljnim cenama zadovoljimo potrebe naših klijenata. <br>
@@ -22,7 +22,7 @@ require_once 'header.php';
   </p>
   </div>
 
-  <div class="terms">
+  <div class="terms" style="font-size:20px;">
     <p>
         Sva vozila u našoj ponudi su u potpunosti opremljena za letnju i zimsku sezonu shodno godišnjem periodu, redovno održavana i servisirana. <br>
         Svako vozilo poseduje GPS uređaj i bogat paket opreme.
@@ -30,7 +30,7 @@ require_once 'header.php';
     </p>
   </div>
 
-  <div class="terms">
+  <div class="terms" style="font-size:20px;">
  <p> Vaš Rent-a-car. </p>
    </div>
  </center>
