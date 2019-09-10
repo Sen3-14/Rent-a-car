@@ -24,7 +24,7 @@ require 'header.php';
 
     <section class="">
         <section class="caption">
-            <h2 class="caption" style="text-align: center; text-shadow: 0.5px 2px silver;"><i>Pronađite auto po
+            <h2 class="caption" style="text-align: center;"><i>Pronađite auto po
                     želji!</i></h2> <br>
             <h3 class="properties" style="text-align: center">Mercedes Benz - Toyota - Range Rovers</h3>
         </section>
