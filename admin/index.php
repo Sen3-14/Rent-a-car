@@ -21,7 +21,7 @@
         if(!id){
             window.alert("Izaberite poruku kojoj saljete odgovor");
         } else {
-            window.location.href = 'sendReply.php?id=' +id;
+            window.location.href = 'sendMessage.php?id=' +id;
         }
     }
     </script>
@@ -36,7 +36,6 @@
 include 'menu.php';
 ?>
         </div>
-    </div>
     </div>
 
     <div id="container">
@@ -80,12 +79,12 @@ $result = $conn->query($select);
 while ($row = $result->fetch_assoc()) {
     ?>                         <form action="sendReply.php" method="POST">
                                 <tr>
-                                    <td style:"text-align=center">
+                                    <td>
                                        <?php echo $row['message'] ?>
                                     </td>
-                                    <td><?php echo $row['time']?></td>
-                                    <td><?php echo $row['status']?></td>
-                                    <td>
+                                    <td style="text-align:center;"><?php echo $row['time']?></td>
+                                    <td style="text-align:center;"><?php echo $row['status']?></td>
+                                    <td style="text-align:center;">
                                  <a href="javascript:sureToApprove(<?php echo $row['msg_id']; ?>)"
                                             class="ico del">Obrisi</a>
                                 <a href="javascript:changeStatus(<?php echo $row['msg_id']; ?>)" class="ico edit">Oznaci</a></br>
