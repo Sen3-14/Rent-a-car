@@ -11,21 +11,11 @@
 
             <li class="links">
                 <ul>
-                    <li>Ostalo</li>
-                    <li><a href="#">...</a></li>
-                    <li><a href="#">...</a></li>
-                    <li><a href="#">...</a></li>
-                    <li><a href="#">...</a></li>
-                </ul>
-            </li>
-
-            <li class="links">
-                <ul>
                     <li>Vozila u ponudi</li>
-                    <li><a href="book_car?id=1">Mercedes</a></li>
-                    <li><a href="book_car?id=2">Range Rover</a></li>
-                    <li><a href="book_car?id=5">Landcruisers</a></li>
-                    <li><a href="rent.php">Još vozila</a></li>
+                    <li><a href="rent.php">Mercedes</a></li>
+                    <li><a href="rent.php">Range Rover</a></li>
+                    <li><a href="rent.php">Landcruisers</a></li>
+                    <li><a href="rent.php">Toyota...</a></li>
                 </ul>
             </li>
 

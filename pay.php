@@ -79,8 +79,7 @@ $rws = $rs->fetch_assoc();
 
             </ul>
             <div class="more_listing" style="margin-top:1%;">
-                <p class="more_listing_btn">Po uspešnoj transakciji sajt ne zadrzava informacije korisnika o tipu
-                    kreditne kartice, broju računa i PIN koda. </p>
+                <p class="more_listing_btn">Sajt ne zadržava informacije korisnika o tipu kreditne kartice i PIN koda. </p>
             </div>
         </div>
     </section>
