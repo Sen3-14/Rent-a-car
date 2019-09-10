@@ -5,4 +5,5 @@
 	alert(\"Uspešno ste se odjavili.\");
 	window.location = (\"../index.php\")
 	</script>";
+	exit();
 ?>

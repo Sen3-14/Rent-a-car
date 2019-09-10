@@ -15,7 +15,7 @@
                     <li><a href="rent.php">Mercedes</a></li>
                     <li><a href="rent.php">Range Rover</a></li>
                     <li><a href="rent.php">Landcruisers</a></li>
-                    <li><a href="rent.php">Toyota...</a></li>
+                    <li><a href="rent.php">Toyota</a></li>
                 </ul>
             </li>
 
