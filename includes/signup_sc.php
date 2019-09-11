@@ -10,7 +10,7 @@ if (isset($_POST['signup-submit'])) {
     $phone = $_POST['phone'];
     $loc = $_POST['location'];
 
-    if (empty($fname) || empty($pass) || empty($gender) || empty($email) || empty($phone) || empty($loc) || empty($passRepeat)) {
+    if (empty($fname) || empty($lname) || empty($pass) || empty($gender) || empty($email) || empty($phone) || empty($loc) || empty($passRepeat)) {
       echo "<script type = \"text/javascript\">
       alert(\"Molimo popunite sva polja.\");
       window.location = (\"../signup.php\")
@@ -67,7 +67,7 @@ if (isset($_POST['signup-submit'])) {
               </script>";
                 exit();
             } else {
-                $sql = "INSERT INTO client (fname,email,passw,phone,locat,gender) VALUES (?,?,?,?,?,?)";
+                $sql = "INSERT INTO client (fname,lname,email,passw,phone,locat,gender) VALUES (?,?,?,?,?,?,?)";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                   echo "<script type = \"text/javascript\">
@@ -77,7 +77,7 @@ if (isset($_POST['signup-submit'])) {
                     exit();
                 } else {
                     $hashedPwd = password_hash($pass, PASSWORD_BCRYPT);
-                    mysqli_stmt_bind_param($stmt, "sssiss", $fname, $email, $hashedPwd, $phone, $loc, $gender);
+                    mysqli_stmt_bind_param($stmt, "sssiss", $fname, $lname, $email, $hashedPwd, $phone, $loc, $gender);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
                     echo "<script type = \"text/javascript\">
