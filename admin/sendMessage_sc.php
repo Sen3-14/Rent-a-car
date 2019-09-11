@@ -12,7 +12,7 @@
       </script>";
         exit();
      } else {
-         mail($mailTo,$mesg);
+         mail($mailTo,"Rent-a-car team",$mesg);
          $id = $_SESSION['mailid'];
          $qry = "SELECT * FROM message WHERE msg_id = '$id'";
          $rslt = $conn->query($qry);
