@@ -8,18 +8,18 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
     <script type="text/javascript">
     function sureToApprove(id) {
-        if (confirm("Da li ste sigurni da zelite da izbrisete poruku?")) {
+        if (confirm("Da li ste sigurni da zelite da izbrišete poruku?")) {
             window.location.href = 'delete_msg.php?id=' + id;
         }
     }
     function changeStatus(id){
-         if(confirm("Promeni u procitano?")){
+         if(confirm("Promeni u pročitano?")){
                 window.location.href = 'changeStatus.php?id=' +id;
          }
     }
     function sendMessage(id){
         if(!id){
-            window.alert("Izaberite poruku kojoj saljete odgovor");
+            window.alert("Izaberite poruku kojoj šaljete odgovor");
         } else {
             window.location.href = 'sendMessage.php?id=' +id;
         }
@@ -58,9 +58,8 @@ include 'menu.php';
                         <div class="box-head">
                             <h2 class="left">Poruke klijenata</h2>
                             <div class="right">
-                                <label>search messages</label>
                                 <input type="text" class="field small-field" />
-                                <input type="submit" class="button" value="search" />
+                                <input type="submit" class="button" value="pretraga" />
                             </div>
                         </div>
 
@@ -86,9 +85,9 @@ while ($row = $result->fetch_assoc()) {
                                     <td style="text-align:center;"><?php echo $row['status']?></td>
                                     <td style="text-align:center;">
                                  <a href="javascript:sureToApprove(<?php echo $row['msg_id']; ?>)"
-                                            class="ico del">Obrisi</a>
-                                <a href="javascript:changeStatus(<?php echo $row['msg_id']; ?>)" class="ico edit">Oznaci</a></br>
-                            <a href="javascript:sendMessage(<?php echo $row['msg_id'];?>)" class="add-button"><span>Posalji odgovor</span></a>
+                                            class="ico del">Obriši</a>
+                                <a href="javascript:changeStatus(<?php echo $row['msg_id']; ?>)" class="ico edit">Označi</a></br>
+                            <a href="javascript:sendMessage(<?php echo $row['msg_id'];?>)" class="add-button"><span>Pošalji odgovor</span></a>
                             <div class="cl">&nbsp;</div>
                                     </td>
                                 </tr>
@@ -99,7 +98,7 @@ while ($row = $result->fetch_assoc()) {
                             </table>
 
                         </div>
-                        <h2><input type="submit" onclick="window.print()" value="Print Here" /></h2>
+                        <br><h2><input type="submit" onclick="window.print()" value="Štampaj" /></h2>
 
                     </div>
 

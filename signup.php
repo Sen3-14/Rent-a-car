@@ -32,7 +32,8 @@ require 'header.php';
 
             <h3>Registrujte se ovde:</h3>
             <form action="includes/signup_sc.php" method="post">
-                <input type="text" name="fname" placeholder="Ime i prezime..." class="loginform">
+                <input type="text" name="fname" placeholder="Ime..." class="loginform">
+                <input type="text" name="lname" placeholder="Prezime..." class="loginform">
                 <input type="number" name="phone" placeholder="Broj telefona..." class="loginform">
                 <input type="email" name="email" placeholder="E-mail..." class="loginform">
                 <select name="gender" class="loginform">

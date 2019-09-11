@@ -30,7 +30,7 @@
         <div class="shell">
 
             <div class="small-nav">
-                <a href="index.php">Dashboard</a>
+                <a href="index.php">Komandna tabla</a>
                 <span>&gt;</span>
                 Zahtevi klijenata
             </div>
@@ -46,9 +46,8 @@
                         <div class="box-head">
                             <h2 class="left">Zahtevi klijenta</h2>
                             <div class="right">
-                                <label>search requests</label>
                                 <input type="text" class="field small-field" />
-                                <input type="submit" class="button" value="search" />
+                                <input type="submit" class="button" value="pretraga" />
                             </div>
                         </div>
 
@@ -62,11 +61,11 @@
                                     <th>Cena</th>
                                     <th>Status</th>
                                     <th>Mpesa</th>
-                                    <th width="110" class="ac">Upravljanje zahtevom</th>
+                                    <th width="110" class="ac">Kontrole</th>
                                 </tr>
                                 <?php
 								include '../includes/config.php';
-								$select = "SELECT client.mpesa,client.client_id,client.fname,client.phone,cars.car_name,cars.hire_cost,client.status 
+								$select = "SELECT client.mpesa,client.client_id,client.fname,client.phone,cars.car_name,cars.hire_cost,client.status
 										FROM client JOIN cars ON client.car_id=cars.car_id";
 								$result = $conn->query($select);
 								while($row = $result->fetch_assoc()){
@@ -84,32 +83,15 @@
                                     <td><?php echo $row['status'] ?></td>
                                     <td><?php echo $row['mpesa']?></td>
                                     <td><a href="javascript:sureToApprove(<?php echo $row['client_id'];?>)"
-                                            class="ico del">Odobri</a><a href="#" class="ico edit">Izbrisi</a></td>
+                                            class="ico del">Odobri</a><a href="#" class="ico edit">Izbriši</a></td>
                                 </tr>
                                 <?php
 								}
 							?>
                             </table>
 
-
-
-                            <div class="pagging">
-                                <div class="left">Prikazuje se 1-12 of 44</div>
-                                <div class="right">
-                                    <a href="#">Previous</a>
-                                    <a href="#">1</a>
-                                    <a href="#">2</a>
-                                    <a href="#">3</a>
-                                    <a href="#">4</a>
-                                    <a href="#">245</a>
-                                    <span>...</span>
-                                    <a href="#">Sledeci</a>
-                                    <a href="#">Prethodni</a>
-                                </div>
-                            </div>
-
                         </div>
-                        <h2><input type="submit" onclick="window.print()" value="Odstampaj zahteve" /></h2>
+                        <br> <h2><input type="submit" onclick="window.print()" value="Štampaj zahteve" /></h2>
 
                     </div>
 

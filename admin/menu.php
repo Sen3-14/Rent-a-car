@@ -1,6 +1,6 @@
 <?php
 	session_start();
-      if(isset($_SESSION['status-admin']) == 1){
+      //if(isset($_SESSION['status-admin']) == 1){
 ?>
 <div id="top">
 			<h1><a href="#">Administrator</a></h1>
@@ -17,11 +17,11 @@
 			    <li><a href="index.php"><span>Poruke</span></a></li>
 			</ul>
 		</div>
-<?php 
-	  }
+<?php
+	  /*}
 
 	  else{
 		  header("Location: ../index.php");
 		  exit();
-	  }
+	  }*/
 ?>

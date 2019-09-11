@@ -5,7 +5,7 @@
 	$result = $conn->query($query);
 	if($result === TRUE){
 		echo "<script type = \"text/javascript\">
-					alert(\"Car Successfully Send\");
+					alert(\"Vozilo je uspešno izbrisano.\");
 					window.location = (\"add_vehicles.php\")
 				</script>";
 	}

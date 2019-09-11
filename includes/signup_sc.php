@@ -2,6 +2,7 @@
 if (isset($_POST['signup-submit'])) {
     require 'config.php';
     $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
     $pass = $_POST['pwd'];
     $passRepeat = $_POST['pwd-repeat'];
     $gender = $_POST['gender'];
@@ -33,6 +34,12 @@ if (isset($_POST['signup-submit'])) {
       window.location = (\"../signup.php\")
       </script>";
         exit();
+      } else if (!preg_match("/^[a-zA-Z0-9]*$/", $lname)) {
+          echo "<script type = \"text/javascript\">
+          alert(\"Vaše prezime sadrži ilegalne karaktere.\");
+          window.location = (\"../signup.php\")
+          </script>";
+            exit();
     } else if ($pass !== $passRepeat) {
       echo "<script type = \"text/javascript\">
       alert(\"Potvrda lozinke nije ispravna.\");

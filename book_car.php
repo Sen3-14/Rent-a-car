@@ -36,9 +36,9 @@ $_SESSION['the_car'] = $_GET['id'];
 include 'includes/config.php';
 if (!isset($_SESSION['status'])) {
     ?>
-                <p class="terms"> Da bi ste iznajmili vozilo morate biti prijavljeni. Možete se prijaviti klikom na
+                <p class="terms" style="font-size:20px;"> Da bi ste iznajmili vozilo morate biti prijavljeni. Možete se prijaviti klikom na
                     sledeći <a href="account.php" style="text-decoration:underline; color:green;"> link. </a> </p>
-                <p class="terms"> Registraciju možete izvršiti <a href="signup.php"
+                <p class="terms" style="font-size:20px;"> Registraciju možete izvršiti <a href="signup.php"
                         style="text-decoration:underline; color: red;"> ovde. </a> </p> <?php
 exit();
 }
