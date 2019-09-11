@@ -12,6 +12,13 @@
             window.location.href = 'delete_car.php?id=' + id;
         }
     }
+
+    function toggle(source) {
+  checkboxes = document.getElementsByName('cb');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
     </script>
 </head>
 
@@ -53,7 +60,7 @@ include 'menu.php';
                         <div class="table">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
-                                    <th width="13"><input type="checkbox" class="checkbox" /></th>
+                                    <th width="13"><input type="checkbox" class="checkbox" onClick="toggle(this)"/></th>
                                     <th>Tip vozila</th>
                                     <th>Ime vozila</th>
                                     <th>Cena</th>
@@ -66,7 +73,7 @@ $result = $conn->query($select);
 while ($row = $result->fetch_assoc()) {
     ?>
                                 <tr>
-                                    <td><input type="checkbox" class="checkbox" /></td>
+                                    <td><input type="checkbox" class="checkbox" name="cb"/></td>
                                     <td>
                                         <h3><a href="#"><?php echo $row['car_type'] ?></a></h3>
                                     </td>
@@ -97,7 +104,7 @@ while ($row = $result->fetch_assoc()) {
                             <a href="add_cars.php" class="add-button"><span>Dodaj novo vozilo</span></a>
                             <div class="cl">&nbsp;</div>
 
-                            <p class="select-all"><input type="checkbox" class="checkbox" /><label>Izaberi sve</label>
+                            <p class="select-all"><input type="checkbox" class="checkbox" onClick="toggle(this)"/><label>Izaberi sve</label>
                             </p>
                             <p><a href="#">Obriši izabrano</a></p>
 
