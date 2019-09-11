@@ -5,7 +5,7 @@
 	$result = $conn->query($query);
 	if($result === TRUE){
 		echo "<script type = \"text/javascript\">
-					alert(\"Poruka uspesno obrisana.\");
+					alert(\"Poruka je uspešno obrisana.\");
 					window.location = (\"index.php\")
 				</script>";
 	}

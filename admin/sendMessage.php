@@ -24,7 +24,7 @@
 <body>
 
     <div id="header">
-      <div class="shell"> 
+      <div class="shell">
           <?php
 include 'menu.php';
 require '../includes/config.php';
@@ -35,7 +35,7 @@ $result = $conn->query($query);
 $row = mysqli_fetch_assoc($result);
 $mail = $row['client_id'];
 $Query = "SELECT * FROM client WHERE email = '$mail'";
-$result2 = $conn->query($Query); 
+$result2 = $conn->query($Query);
 $row2 = mysqli_fetch_assoc($result2);
 
 session_start();
@@ -47,16 +47,16 @@ $_SESSION['mailid'] = $id;
 
     <section class="listings">
         <div class="wrapper">
-            <h2 style="color:black;">Vas odgovor za:<?php echo " " .$row2['fname'];?></h2>
+            <h2 style="color:black;">Vaš odgovor za:<?php echo " " .$row2['fname'];?></h2>
             <ul class="properties_list">
                 <form action="sendMessage_sc.php" method="post">
-                    <table> 
+                    <table>
                         <tr>
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
                             <h1 style="color: black;">Poruka:
-                            <?php 
+                            <?php
                                    echo $row['message'];
                             ?>
                             </h1>
@@ -77,8 +77,8 @@ $_SESSION['mailid'] = $id;
         </div>
     </section>
 
-<?php 
-    
+<?php
+
 ?>
 
 </body>

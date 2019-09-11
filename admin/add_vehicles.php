@@ -29,7 +29,7 @@ include 'menu.php';
         <div class="shell">
 
             <div class="small-nav">
-                <a href="index.php">Dashboard</a>
+                <a href="index.php">Komandna tabla</a>
                 <span>&gt;</span>
                 Upravljanje vozilima
             </div>
@@ -45,9 +45,8 @@ include 'menu.php';
                         <div class="box-head">
                             <h2 class="left">Vozila</h2>
                             <div class="right">
-                                <label>Trazi vozilo</label>
                                 <input type="text" class="field small-field" />
-                                <input type="submit" class="button" value="search" />
+                                <input type="submit" class="button" value="pretraga" />
                             </div>
                         </div>
 
@@ -58,7 +57,7 @@ include 'menu.php';
                                     <th>Tip vozila</th>
                                     <th>Ime vozila</th>
                                     <th>Cena</th>
-                                    <th width="110" class="ac">Upravljanje</th>
+                                    <th width="110" class="ac">Kontrole</th>
                                 </tr>
                                 <?php
 include '../includes/config.php';
@@ -74,28 +73,16 @@ while ($row = $result->fetch_assoc()) {
                                     <td><?php echo $row['car_name'] ?></td>
                                     <td><a href="#"><?php echo $row['hire_cost'] ?></a></td>
                                     <td><a href="javascript:sureToApprove(<?php echo $row['car_id']; ?>)"
-                                            class="ico del">Izbrisi</a><a href="#" class="ico edit">Podesi</a></td>
+                                            class="ico del">Izbriši</a><a href="#" class="ico edit">Podesi</a></td>
                                 </tr>
                                 <?php
 }
 ?>
                             </table>
 
-                            <div class="pagging">
-                                <div class="left">Prikazivanje 1-12 of 44</div>
-                                <div class="right">
-                                    <a href="#">Prethodna</a>
-                                    <a href="#">1</a>
-                                    <a href="#">2</a>
-                                    <a href="#">3</a>
-                                    <a href="#">4</a>
-                                    <a href="#">245</a>
-                                    <span>...</span>
-                                    <a href="#">Sledeca</a>
-                                </div>
-                            </div>
+
                         </div>
-                        <h2><input type="submit" onclick="window.print()" value="Print Here" /></h2>
+                      <br> <h2><input type="submit" onclick="window.print()" value="Štampaj" /></h2>
 
                     </div>
                 </div>
@@ -112,8 +99,8 @@ while ($row = $result->fetch_assoc()) {
 
                             <p class="select-all"><input type="checkbox" class="checkbox" /><label>Izaberi sve</label>
                             </p>
-                            <p><a href="#">Obrisi izabrano</a></p>
-							
+                            <p><a href="#">Obriši izabrano</a></p>
+
 							<div class="sort">
                                 <label>Sortiraj po</label>
                                 <select class="field">

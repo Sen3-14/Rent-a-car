@@ -1,6 +1,6 @@
-<?php 
+<?php
   require '../includes/config.php';
-  
+
   if(isset($_POST['send'])){
     session_start();
      $mailTo = $_SESSION['SENDTO'];
@@ -21,7 +21,7 @@
         $query = "UPDATE message SET status = 'Read' WHERE msg_id = '$id'";
         $result = $conn->query($query);
         if($result === FALSE){
-            echo "Sql greska";
+            echo "Sql greška";
         }
          mysqli_close($conn);
          unset($_SESSION['SENDTO']);
