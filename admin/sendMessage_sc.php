@@ -31,6 +31,15 @@
       window.location = (\"index.php\")
       </script>";
         exit();
+     } else {
+      mysqli_close($conn);
+      unset($_SESSION['SENDTO']);
+      unset($_SESSION['mailid']);
+      echo "<script type = \"text/javascript\">
+   alert(\"Poruka poslata.\");
+   window.location = (\"index.php\")
+   </script>";
+     exit();
      }
    }
  } else {
