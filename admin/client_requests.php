@@ -83,7 +83,7 @@
                                     <td><?php echo $row['status'] ?></td>
                                     <td><?php echo $row['mpesa']?></td>
                                     <td><a href="javascript:sureToApprove(<?php echo $row['client_id'];?>)"
-                                            class="ico del">Odobri</a><a href="#" class="ico edit">Izbriši</a></td>
+                                            class="ico edit">Odobri</a><a href="#" class="ico del">Izbriši</a></td>
                                 </tr>
                                 <?php
 								}

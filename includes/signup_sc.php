@@ -76,8 +76,8 @@ if (isset($_POST['signup-submit'])) {
                   </script>";
                     exit();
                 } else {
-                    $hashedPwd = password_hash($pass, PASSWORD_BCRYPT);
-                    mysqli_stmt_bind_param($stmt, "sssiss", $fname, $lname, $email, $hashedPwd, $phone, $loc, $gender);
+                    $hashedPwd = password_hash($pass, PASSWORD_DEFAULT);
+                    mysqli_stmt_bind_param($stmt, "ssssiss", $fname, $lname, $email, $hashedPwd, $phone, $loc, $gender);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
                     echo "<script type = \"text/javascript\">
