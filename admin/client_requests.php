@@ -12,6 +12,11 @@
             window.location.href = 'approve.php?id=' + id;
         }
     }
+    function deleteRequest(id){
+        if (confirm("Da li ste sigurni?")) {
+            window.location.href = 'delete_request.php?id=' + id;
+        }
+    }
     </script>
 </head>
 
@@ -66,7 +71,7 @@
                                 <?php
 								include '../includes/config.php';
 								$select = "SELECT client.mpesa,client.client_id,client.fname,client.phone,cars.car_name,cars.hire_cost,client.status
-										FROM client JOIN cars ON client.car_id=cars.car_id";
+										FROM client JOIN cars ON client.car_id=cars.car_id WHERE client.status = 'waiting'";
 								$result = $conn->query($select);
 								while($row = $result->fetch_assoc()){
 							?>
@@ -82,7 +87,7 @@
                                     <td><?php echo $row['hire_cost'] ?></td>
                                     <td><?php echo $row['status'] ?></td>
                                     <td><?php echo $row['mpesa']?></td>
-                                    <td><a href="#" class="ico del">Izbriši</a><a href="javascript:sureToApprove(<?php echo $row['client_id'];?>)"
+                                    <td><a href="javascript:deleteRequest(<?php echo $row['client_id'];?>)" class="ico del">Izbriši</a><a href="javascript:sureToApprove(<?php echo $row['client_id'];?>)"
                                             class="ico edit">Odobri</a></td>
                                 </tr>
                                 <?php
