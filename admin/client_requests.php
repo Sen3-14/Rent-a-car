@@ -82,8 +82,8 @@
                                     <td><?php echo $row['hire_cost'] ?></td>
                                     <td><?php echo $row['status'] ?></td>
                                     <td><?php echo $row['mpesa']?></td>
-                                    <td><a href="javascript:sureToApprove(<?php echo $row['client_id'];?>)"
-                                            class="ico edit">Odobri</a><a href="#" class="ico del">Izbriši</a></td>
+                                    <td><a href="#" class="ico del">Izbriši</a><a href="javascript:sureToApprove(<?php echo $row['client_id'];?>)"
+                                            class="ico edit">Odobri</a></td>
                                 </tr>
                                 <?php
 								}
