@@ -5,19 +5,10 @@
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title>Admin Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-    <script type="text/javascript">
-    function sureToApprove(id) {
-        if (confirm("Da li ste sigurni?")) {
-            window.location.href = 'approve.php?id=' + id;
-        }
-    }
-    function deleteRequest(id){
-        if (confirm("Da li ste sigurni?")) {
-            window.location.href = 'delete_request.php?id=' + id;
-        }
-    }
-    </script>
 </head>
 
 <body>
@@ -31,84 +22,20 @@
         </div>
     </div>
 
-    <div id="container">
-        <div class="shell">
-
-            <div class="small-nav">
-                <a href="index.php">Komandna tabla</a>
-                <span>&gt;</span>
-                Zahtevi klijenata
+    
+     <div class="container">
+        <h2 align="center">Poruke klijenata</h2><br />
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon">Search</span>
+                <input type="text" name="search_text" id="search_text" placeholder="Trazi po imenu, vozilu ili e-mailu" class="form-control" />
             </div>
-
-            <br />
-
-            <div id="main">
-                <div class="cl">&nbsp;</div>
-
-                <div id="content">
-
-                    <div class="box">
-                        <div class="box-head">
-                            <h2 class="left">Zahtevi klijenta</h2>
-                            <div class="right">
-                                <input type="text" class="field small-field" />
-                                <input type="submit" class="button" value="pretraga" />
-                            </div>
-                        </div>
-
-                        <div class="table">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <th width="13"><input type="checkbox" class="checkbox" /></th>
-                                    <th>Ime klijenta</th>
-                                    <th>Broj telefona</th>
-                                    <th>Rezervisani auto</th>
-                                    <th>Cena</th>
-                                    <th>Status</th>
-                                    <th>Mpesa</th>
-                                    <th width="110" class="ac">Kontrole</th>
-                                </tr>
-                                <?php
-								include '../includes/config.php';
-								$select = "SELECT client.mpesa,client.client_id,client.fname,client.phone,cars.car_name,cars.hire_cost,client.status
-										FROM client JOIN cars ON client.car_id=cars.car_id WHERE client.status = 'waiting'";
-								$result = $conn->query($select);
-								while($row = $result->fetch_assoc()){
-							?>
-                                <tr>
-                                    <td><input type="checkbox" class="checkbox" /></td>
-                                    <td>
-                                        <h3><a href="#"><?php echo $row['fname'] ?></a></h3>
-                                    </td>
-                                    <td>
-                                        <h3><a href="#"><?php echo $row['phone'] ?></a></h3>
-                                    </td>
-                                    <td><?php echo $row['car_name'] ?></td>
-                                    <td><?php echo $row['hire_cost'] ?></td>
-                                    <td><?php echo $row['status'] ?></td>
-                                    <td><?php echo $row['mpesa']?></td>
-                                    <td><a href="javascript:deleteRequest(<?php echo $row['client_id'];?>)" class="ico del">Izbriši</a><a href="javascript:sureToApprove(<?php echo $row['client_id'];?>)"
-                                            class="ico edit">Odobri</a></td>
-                                </tr>
-                                <?php
-								}
-							?>
-                            </table>
-
-                        </div>
-                        <br> <h2><input type="submit" onclick="window.print()" value="Štampaj zahteve" /></h2>
-
-                    </div>
-
-                </div>
-
-                <div class="cl">&nbsp;</div>
-            </div>
-
         </div>
+        <br />
+        <div id="result"></div><h2><input type="submit" onclick="window.print()" value="Štampaj" /></h2>
     </div>
-
-
+    <div style="clear:both"></div>
+                       
 
     <div id="footer">
         <div class="shell">
@@ -121,3 +48,42 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+    function sureToApprove(id) {
+        if (confirm("Da li ste sigurni?")) {
+            window.location.href = 'approve.php?id=' + id;
+        }
+    }
+    function deleteRequest(id){
+        if (confirm("Da li ste sigurni?")) {
+            window.location.href = 'delete_request.php?id=' + id;
+        }
+    }
+    </script>
+
+<script>
+    $(document).ready(function () {
+        load_data();
+        function load_data(query) {
+            $.ajax({
+                url: "fetch_requests.php",
+                method: "POST",
+                data: { query: query },
+                success: function (data) {
+                    $('#result').html(data);
+                }
+            });
+        }
+
+        $('#search_text').keyup(function () {
+            var search = $(this).val();
+            if (search != '') {
+                load_data(search);
+            }
+            else {
+                load_data();
+            }
+        });
+    });
+</script>
