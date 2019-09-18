@@ -5,7 +5,8 @@
 <div id="top">
 			<h1><a href="#">Administrator</a></h1>
 			<div id="top-navigation">
-				Zdravo <a href="#"><strong><?php echo $_SESSION['user']; ?></strong></a>
+				Zdravo
+			<?php // <a href="#"><strong><?php echo $_SESSION['user']; </strong></a> ?>
 				<span>|</span>
 				<a href="logout.php">Odjavi se</a>
 			</div>

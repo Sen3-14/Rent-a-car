@@ -7,9 +7,9 @@
     <title>Administrator</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-    
+
 </head>
 
 <body>
@@ -23,26 +23,34 @@ include 'menu.php';
         </div>
     </div>
 
-    <div class="container">
-        <br />
-        <br />
-        <br />
-        <h2 align="center">Poruke klijenata</h2><br />
+    <div id="container">
+        <div class="shell">
+
+            <div class="small-nav">
+                <a href="index.php">Komandna tabla</a>
+                <span>&gt;</span>
+                Zahtevi za zakazivanje
+            </div>
+
+            <br />
+
+            <div id="main">
+                <div class="cl">&nbsp;</div>
+
+                <div id="content">
         <div class="form-group">
             <div class="input-group">
-                <span class="input-group-addon">Search</span>
-                <input type="text" name="search_text" id="search_text" placeholder="Trazi po imenu,prezimenu ili e-mailu" class="form-control" />
+              <form>
+  <input type="text" name="search_text" id="search_text" placeholder="Pretraga.." class="pretraga" />
+</form>
             </div>
         </div>
         <br />
-        <div id="result"></div><h2><input type="submit" onclick="window.print()" value="Štampaj" /></h2>
-    </div>
+      <br>  <div id="result"></div><h2><input type="submit" onclick="window.print()" value="Štampaj" /></h2>
+    </div> </div> </div> </div>
     <div style="clear:both"></div>
-    <br />
-    
-    <br />
-    <br />
-    <br />
+
+
 
     <div id="footer">
         <div class="shell">

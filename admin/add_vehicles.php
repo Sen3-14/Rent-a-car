@@ -30,7 +30,7 @@ include 'menu.php';
 ?>
         </div>
     </div>
-    </div>
+  
 
     <div id="container">
         <div class="shell">
