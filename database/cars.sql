@@ -95,3 +95,11 @@ INSERT INTO `message` (`msg_id`, `client_id`, `message`, `status`, `time`) VALUE
 (2, 0, 'Am happy its working?', 'Unread', '0000-00-00 00:00:00'),
 (3, 0, 'Thanks for that..OK?', 'Unread', '0000-00-00 00:00:00'),
 (5, 0, 'I love this. It worked the way i want...', 'Unread', '2015-08-04 21:45:33');
+
+CREATE TABLE pwdReset(
+    pwdResetId int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    pwdResetEmail TEXT NOT NULL,
+    pwdResetSelector TEXT NOT NULL,
+    pwdResetToken LONGTEXT NOT NULL,
+    pwdResetExpires TEXT NOT NULL
+) ENGINE=INNODB;

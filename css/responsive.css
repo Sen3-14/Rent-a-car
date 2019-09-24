@@ -976,3 +976,9 @@ footer .copyrights a.ph_link{
 		margin-left: auto;
 		width: 300px;
 	}
+
+
+    #forgPass{
+        position: inherit;
+        float: inherit;
+    }

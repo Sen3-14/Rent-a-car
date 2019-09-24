@@ -34,6 +34,7 @@ require 'header.php';
                     <input type="password" name="pwd" placeholder="Unesite lozinku..." class="loginform" required>
                     <button type="submit" name="log" class="loginbutton1">Prijavite se</button>
                     <a href="signup.php" class="loginbutton2">Novi nalog</a>
+                    <a href="forgottenPassword.php" class="loginbutton2" id="forgPass">Zaboravljena lozinka</a>
     </section>
 
     <?php
