@@ -35,6 +35,7 @@ if (isset($_POST['log'])) {
                     session_start();
                     $_SESSION['user'] = $row['email'];
                     $_SESSION['uid'] = $row['client_id'];
+                    $_SESSION['sepass'] = $row['passw'];
                     $_SESSION["status"] = true;
                     mysqli_stmt_close($stmt);
                     mysqli_close($conn);

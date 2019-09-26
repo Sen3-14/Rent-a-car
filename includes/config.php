@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = "";
+$pass = "12345";
 $db = "cars";
 
 date_default_timezone_set('Europe/Belgrade');

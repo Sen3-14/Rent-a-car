@@ -14,6 +14,7 @@ if ((isset($_SESSION['status'])) == true) {
                 <li><a href="rent.php" class="helink">Iznajmite vozilo</a></li>
                 <li><a href="status.php" class="helink">Proveri status</a></li>
                 <li><a href="message_admin.php" class="helink">Kontaktirajte administratora</a></li>
+                <li><a href="information.php" class="helink">Izmena podataka</a></li>
                 <li><a href="admin/logout.php" class="helink">Odjavite se</a></li>
             </ul>
             <?php
