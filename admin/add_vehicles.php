@@ -58,7 +58,7 @@ include 'menu.php';
                         </div>
 
                         <div class="table">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="overflow:scroll;">
                                 <tr>
                                     <th width="13"><input type="checkbox" class="checkbox" onClick="toggle(this)"/></th>
                                     <th>Tip vozila</th>
@@ -103,19 +103,6 @@ while ($row = $result->fetch_assoc()) {
                         <div class="box-content">
                             <a href="add_cars.php" class="add-button"><span>Dodaj novo vozilo</span></a>
                             <div class="cl">&nbsp;</div>
-
-                            <p class="select-all"><input type="checkbox" class="checkbox" onClick="toggle(this)"/><label>Izaberi sve</label>
-                            </p>
-                            <p><a href="#">Obriši izabrano</a></p>
-
-							<div class="sort">
-                                <label>Sortiraj po</label>
-                                <select class="field">
-									<option value="">Ime vozila</option>
-									<option value="">Tip vozila</option>
-									<option value="">Cena</option>
-                                </select>
-                            </div>
                         </div>
                     </div>
 
@@ -128,14 +115,6 @@ while ($row = $result->fetch_assoc()) {
         </div>
     </div>
 
-    <div id="footer">
-        <div class="shell">
-            <span class="left">&copy; <?php echo date("Y"); ?></span>
-            <span class="right">
-                </a>
-            </span>
-        </div>
-    </div>
 
 </body>
 

@@ -19,7 +19,7 @@ $result = $conn->query($query);
 if(mysqli_num_rows($result) > 0)
 {
 	$output .= '<div class="table-responsive">
-					<table class="table table bordered" style="text-align: center;">
+					<table class="table table bordered" style="text-align: center;" style="overflow:scroll;">
 					<form action="sendReply.php" method="POST">
 					<tr>
 							<th>Ime</th>
