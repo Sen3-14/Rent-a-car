@@ -29,7 +29,7 @@
             <div class="small-nav">
                 <a href="index.php">Komandna tabla</a>
                 <span>&gt;</span>
-                Zahtevi za zakazivanje
+                Klijenti
             </div>
 
             <br />
@@ -56,14 +56,9 @@
 </html>
 
 <script type="text/javascript">
-    function sureToApprove(id) {
-        if (confirm("Da li ste sigurni?")) {
-            window.location.href = 'approve.php?id=' + id;
-        }
-    }
     function deleteRequest(id){
         if (confirm("Da li ste sigurni?")) {
-            window.location.href = 'delete_request.php?id=' + id;
+            window.location.href = 'delete_client.php?id=' + id;
         }
     }
     </script>
@@ -73,7 +68,7 @@
         load_data();
         function load_data(query) {
             $.ajax({
-                url: "fetch_requests.php",
+                url: "fetch_clients.php",
                 method: "POST",
                 data: { query: query },
                 success: function (data) {
