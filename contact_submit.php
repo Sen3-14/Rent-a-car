@@ -1,9 +1,10 @@
 <?php
+  require_once 'includes/config.php';
 if (isset($_POST['submit'])) {
     $fname = $_POST['firstname'];
     $lname = $_POST['lastname'];
     $email = $_POST['email'];
-    $message = $_POST['subject'];
+    $message =$_POST['subject'];
 
     if (empty($fname) || empty($lname) || empty($email) || empty($message)) {
         header("Location: contact.php?error=emptyFields");
@@ -12,12 +13,16 @@ if (isset($_POST['submit'])) {
         header("Location: contact.php?error=invalidCharacters");
         exit();
     }
+    
+    $toAdmin = "From:".$fname." ".$lname."\n subject: ".$message;
 
-    $mailTo = "dulee797@gmail.com";
-    $headers = "Od " . $email;
-    mail($mailTo, $message, $headers);
+    $qry = "INSERT INTO message (message,client_id,status,time) VALUES ('$toAdmin','$email','Unread',NOW())";
+    $result = $conn->query($qry);
+
+    if($result){
     header("Location: contact.php?messageSent=true");
     exit();
+}
 } else {
     header("Location: index.php");
     exit();

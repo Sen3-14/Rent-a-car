@@ -1,5 +1,9 @@
 <?php
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require 'phpmail/src/Exception.php';
+  require 'phpmail/src/PHPMailer.php';
+  require 'phpmail/src/SMTP.php';
 if(isset($_POST['submit'])){
     
     $selector = bin2hex(random_bytes(8));
@@ -12,10 +16,10 @@ if(isset($_POST['submit'])){
 
     $userEmail = $_POST['email'];
 
-    $sql = "DELETE FROM pwdReset WHERE pwdResetEmail=?;";
+    $sql = "DELETE FROM pwdReset WHERE pwdResetEmail=?";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
-        echo "ERROR";
+        echo "ERROR1";
         exit();
     } else {
         mysqli_stmt_bind_param($stmt,"s",$userEmail);
@@ -25,7 +29,7 @@ if(isset($_POST['submit'])){
     $sql = "INSERT INTO pwdReset (pwdResetEmail,pwdResetSelector,pwdResetToken,pwdResetExpires) VALUES (?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
-        echo "ERROR";
+        echo "ERROR2";
         exit();
     } else {
         $hashedToken = password_hash($token, PASSWORD_DEFAULT);
@@ -34,19 +38,29 @@ if(isset($_POST['submit'])){
     } 
 
     mysqli_stmt_close($stmt);
-    mysqli_close();
-
-    $to = $userEmail;
-    $subject = "Resetovanje lozinke za Rent-a-car.com";
+    mysqli_close($conn);
+    //
+    $mail = new PHPMailer();
+    $mail->isSMTP();
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'ssl';
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = '465';
+    $mail->isHTML();
+    $mail->Username = 'dulee797@gmail.com';
+    $mail->Password = '';
+    $mail->SetFrom('dulee797@gmail.com');
+    $mail->Subject = 'Resetovanje lozinke za Rent-a-car.com';
     $message = "<p>Dobili smo vas zahtev za resetovanje lozinke. Kliknite na link da bi nastavili proces. Ako niste zatrazili 
     resetovanje lozinke, mozete da ignorisete ovaj e-mail.</p>";
-    $message .= '<p>Link: <a href="' .$url.'">' .$url.'</a></p>';
-
-    $header = "From: Administrator <dulee797@gmail.com>\r\n";
-    $header.= "Reply-To: dulee797@gmail.com\r\n";
-    $header.= "Content-type: text/html\r\n";
+    $message .= 'Kopirajte ovaj link u browser -> '.$url;
+    $mail->Body = $message;
+    $mail->AddAddress($userEmail);
+    $mail->Send();
+    //
+    $to = $userEmail;
+    $subject = "Resetovanje lozinke za Rent-a-car.com";
     
-    mail($to,$subject,$message,$header);
     header("Location: index.php");
 
 } else {

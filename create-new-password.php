@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/responsive.css">
         <style>
-                input[type=text], select {
+                input[type=password], select {
                   width: 100%;
                   padding: 12px 20px;
                   margin: 8px 0;
@@ -60,8 +60,8 @@
                       <input type="hidden" name="selector" value="<?php echo $selector;?>">
                       <input type="hidden" name="validator" value="<?php echo $validator;?>">
                       <label for="fnam">Unesite novu lozinku</label>
-                      <input type="text" name="pwd" placeholder="Nova lozinka">
-                      <input type="text" name="pwd-repeat" placeholder="Ponovi lozinku">                    
+                      <input type="password" name="pwd" placeholder="Nova lozinka">
+                      <input type="password" name="pwd-repeat" placeholder="Ponovi lozinku">                    
                       <input type="submit" name="submit" value="Postavi novu lozinku">
                     </form>
                  </div>

@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
     $currentDate = date("U");
     require 'includes/config.php';
 
-    $sql = "SELECT * FROM pwdReset WHERE pwdResetSelector=? AND pwdResetExpires=?;";
+    $sql = "SELECT * FROM pwdReset WHERE pwdResetSelector=? AND pwdResetExpires>=?;";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt,$sql)){
         echo "Sql error";
@@ -29,15 +29,13 @@ if(isset($_POST['submit'])){
         
         $result = mysqli_stmt_get_result($stmt);
         if(!$row = mysqli_fetch_assoc($result)){
-           echo "Morate da ponovite postupak";
-           header("Location: account.php");
+           echo "Morate da ponovite postupak, sql greska";
            exit();
         } else {
             $tokenBin = hex2bin($validator);
             $tokenCheck = password_verify($tokenBin,$row["pwdResetToken"]);
             if($tokenCheck === false){
-                echo "Morate da ponovite postupak";
-                header("Location: account.php");
+                echo "Losi tokeni";
                 exit();
             } else if($tokenCheck === true){
                  $tokenEmail = $row["pwdResetEmail"];

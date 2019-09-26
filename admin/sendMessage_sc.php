@@ -1,5 +1,10 @@
 <?php
   require '../includes/config.php';
+  use PHPMailer\PHPMailer\PHPMailer;
+  use PHPMailer\PHPMailer\Exception;
+  require '../phpmail/src/Exception.php';
+  require '../phpmail/src/PHPMailer.php';
+  require '../phpmail/src/SMTP.php';
 
   if(isset($_POST['send'])){
     session_start();
@@ -12,7 +17,20 @@
       </script>";
         exit();
      } else {
-         mail($mailTo,"Rent-a-car team",$mesg);
+      $mail = new PHPMailer();
+      $mail->isSMTP();
+      $mail->SMTPAuth = true;
+      $mail->SMTPSecure = 'ssl';
+      $mail->Host = 'smtp.gmail.com';
+      $mail->Port = '465';
+      $mail->isHTML();
+      $mail->Username = 'dulee797@gmail.com';
+      $mail->Password = '';
+      $mail->SetFrom('dulee797@gmail.com');
+      $mail->Subject = 'Admin tim Rent-a-car';
+      $mail->Body = $mesg;
+      $mail->AddAddress($mailTo);
+      $mail->Send();
          $id = $_SESSION['mailid'];
          $qry = "SELECT * FROM message WHERE msg_id = '$id'";
          $rslt = $conn->query($qry);
