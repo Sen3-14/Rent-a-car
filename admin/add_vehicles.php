@@ -51,10 +51,6 @@ include 'menu.php';
                     <div class="box">
                         <div class="box-head">
                             <h2 class="left">Vozila</h2>
-                            <div class="right">
-                                <input type="text" class="field small-field" />
-                                <input type="submit" class="button" value="pretraga" />
-                            </div>
                         </div>
 
                         <div class="table">
