@@ -56,9 +56,9 @@
 </html>
 
 <script type="text/javascript">
-    function sureToApprove(id) {
+    function sureToApprove(id, car) {
         if (confirm("Da li ste sigurni?")) {
-            window.location.href = 'approve.php?id=' + id;
+            window.location.href = "approve.php?id=" + id + "&car=" + car;
         }
     }
     function deleteRequest(id){

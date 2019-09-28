@@ -1,7 +1,6 @@
 <?php
  include '../includes/config.php';
 $output = '';
-
 if(isset($_POST["query"]))
 {
     $search = $_POST["query"];
@@ -42,8 +41,9 @@ if(mysqli_num_rows($result) > 0)
                 <td>'.$row["mpesa"].'</td>
                 <td>'.$row["status"].'</td>
                 <td>
+                    $rit= '.$row['car_name'].';
                    <a href="javascript:deleteRequest('.$row['client_id'].')" class="ico del">Izbriši</a>
-                   <a href="javascript:sureToApprove('.$row['client_id'].')"class="ico edit">Odobri</a>
+                   <a href="javascript:sureToApprove('.$row['client_id'].', '.$row['car_name'].')"class="ico edit">Odobri</a>
                 </td>
 			</tr>
 			</form>

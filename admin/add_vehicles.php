@@ -30,7 +30,7 @@ include 'menu.php';
 ?>
         </div>
     </div>
-  
+
 
     <div id="container">
         <div class="shell">
@@ -51,19 +51,16 @@ include 'menu.php';
                     <div class="box">
                         <div class="box-head">
                             <h2 class="left">Vozila</h2>
-                            <div class="right">
-                                <input type="text" class="field small-field" />
-                                <input type="submit" class="button" value="pretraga" />
-                            </div>
                         </div>
 
                         <div class="table">
                             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="overflow:scroll;">
                                 <tr>
-                                    <th width="13"><input type="checkbox" class="checkbox" onClick="toggle(this)"/></th>
                                     <th>Tip vozila</th>
                                     <th>Ime vozila</th>
                                     <th>Cena</th>
+                                    <th>Kapacitet</th>
+                                    <th>Dostupnost</th>
                                     <th width="110" class="ac">Kontrole</th>
                                 </tr>
                                 <?php
@@ -73,12 +70,13 @@ $result = $conn->query($select);
 while ($row = $result->fetch_assoc()) {
     ?>
                                 <tr>
-                                    <td><input type="checkbox" class="checkbox" name="cb"/></td>
                                     <td>
                                         <h3><a href="#"><?php echo $row['car_type'] ?></a></h3>
                                     </td>
                                     <td><?php echo $row['car_name'] ?></td>
                                     <td><a href="#"><?php echo $row['hire_cost'] ?></a></td>
+                                    <td><?php echo $row['capacity'] ?></td>
+                                    <td><?php echo $row['availability'] ?></td>
                                     <td><a href="javascript:sureToApprove(<?php echo $row['car_id']; ?>)"
                                             class="ico del">Izbriši</a><a href="#" class="ico edit">Podesi</a></td>
                                 </tr>

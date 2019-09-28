@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `cars` (
     `image` TEXT NOT NULL,
     `hire_cost` INT(11) NOT NULL,
     `capacity` INT(11) NOT NULL,
+    `availability` INT(11) NOT NULL,
     `status` VARCHAR(255) NOT NULL,
     PRIMARY KEY (`car_id`)
 )  ENGINE=INNODB DEFAULT CHARSET=LATIN1 AUTO_INCREMENT=8;
@@ -32,13 +33,13 @@ CREATE TABLE IF NOT EXISTS `cars` (
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`car_id`, `car_name`, `car_type`, `image`, `hire_cost`, `capacity`, `status`) VALUES
-(1, 'Mercedes Benz', 'Coupe', 'car1.jpg', 110000, 5, 'Available'),
-(2, 'Range Rover', 'Mini-SUV', 'car2.jpg', 32000, 6, 'Available'),
-(3, 'Toyota', 'Coupe', 'car3.jpg', 31000, 6, 'Available'),
-(5, 'Toyota V8', 'SUV ', 'images (2).jpg', 40000, 5, 'Available'),
-(6, 'Hummer', 'SUV', 'sonkort2.png', 46000, 8, 'Available'),
-(7, 'Wedding Limousine', 'Wedding Limousine', 'images (3).jpg', 28000, 10, 'Available');
+INSERT INTO `cars` (`car_id`, `car_name`, `car_type`, `image`, `hire_cost`, `capacity`, `availability`, `status`) VALUES
+(1, 'Mercedes Benz', 'Coupe', 'car1.jpg', 110000, 5, 5, 'Available'),
+(2, 'Range Rover', 'Mini-SUV', 'car2.jpg', 32000, 6, 6, 'Available'),
+(3, 'Toyota', 'Coupe', 'car3.jpg', 31000, 6, 6, 'Available'),
+(5, 'Toyota V8', 'SUV ', 'images (2).jpg', 40000, 5, 5, 'Available'),
+(6, 'Hummer', 'SUV', 'sonkort2.png', 46000, 8, 8, 'Available'),
+(7, 'Wedding Limousine', 'Wedding Limousine', 'images (3).jpg', 28000, 10, 10, 'Available');
 
 -- --------------------------------------------------------
 

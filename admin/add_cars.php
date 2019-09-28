@@ -64,8 +64,8 @@
 									<input type="file" class="field size1" name="image" required />
 								</p>
 								<p>
-									<span class="req">Broj sedišta</span>
-									<label>Broj sedišta<span>(Obavezno polje)</span></label>
+									<span class="req">Broj modela ovog vozila</span>
+									<label>Kapacitet<span>(Obavezno polje)</span></label>
 									<input type="text" class="field size1" name="capacity" required />
 								</p>
 
