@@ -54,7 +54,7 @@ include 'menu.php';
                         </div>
 
                         <div class="table">
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="overflow:scroll;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="overflow:scroll;text-align: center;">
                                 <tr>
                                     <th>Tip vozila</th>
                                     <th>Ime vozila</th>
