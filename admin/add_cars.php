@@ -88,7 +88,6 @@
 								$car_type = $_POST['car_type'];
 								$hire_cost = $_POST['hire_cost'];
 								$capacity = $_POST['capacity'];
-
 								$qr = "INSERT INTO cars (image, car_name,car_type,hire_cost,capacity,status)
 													VALUES ('$image','$car_name','$car_type','$hire_cost','$capacity','Available')";
 								$res = $conn->query($qr);
