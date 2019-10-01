@@ -613,6 +613,7 @@ footer ul li.links > ul > li{
     font-family: "lato-regular", Helvetica, Arial, sans-serif;
     font-size: 16px;
     letter-spacing: .5px;
+    text-align: center;
 }
 
 footer ul li.links > ul > li:last-child{

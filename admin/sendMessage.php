@@ -46,8 +46,8 @@ $_SESSION['mailid'] = $id;
 </div>
 
     <section class="listings">
-        <div class="wrapper">
-            <h2 style="color:black;">Vaš odgovor za:<?php echo " " .$row2['fname'];?></h2>
+        <div class="wrapper"><?php if($row['fname']){?>
+        <h2 style="color:black;">Vaš odgovor za:<?php echo " " .$row2['fname'];?></h2><?php }?>
             <ul class="properties_list">
                 <form action="sendMessage_sc.php" method="post">
                     <table>
@@ -55,7 +55,7 @@ $_SESSION['mailid'] = $id;
                             <td>&nbsp;</td>
                         </tr>
                         <tr>
-                            <h1 style="color: black;">Poruka:
+                            <h1 style="color: black;">Poruka:<br>
                             <?php
                                    echo $row['message'];
                             ?>

@@ -4,11 +4,11 @@ $output = '';
 if(isset($_POST["query"]))
 {
     $search = $_POST["query"];
-	$query = "SELECT client.mpesa,client.client_id,client.fname,client.lname,client.phone,client.email,cars.car_name,cars.hire_cost,client.status
+	$query = "SELECT client.mpesa,client.client_id,client.fname,client.lname,client.phone,client.email,cars.car_name,cars.car_id,cars.hire_cost,client.status
 			  FROM client JOIN cars ON client.car_id=cars.car_id WHERE (client.status = 'waiting' AND client.fname LIKE '%".$search."%') OR (client.status = 'waiting' AND client.lname LIKE '%".$search."%') OR (client.status = 'waiting' AND client.email LIKE '%".$search."%')";
 
 } else {
-    $query = "SELECT client.mpesa,client.client_id,client.fname,client.lname,client.phone,client.email,cars.car_name,cars.hire_cost,client.status
+    $query = "SELECT client.mpesa,client.client_id,client.fname,client.lname,client.phone,client.email,cars.car_id,cars.car_name,cars.hire_cost,client.status
 										FROM client JOIN cars ON client.car_id=cars.car_id WHERE client.status = 'waiting'";
 }
 
@@ -41,9 +41,8 @@ if(mysqli_num_rows($result) > 0)
                 <td>'.$row["mpesa"].'</td>
                 <td>'.$row["status"].'</td>
                 <td>
-                    $rit= '.$row['car_name'].';
                    <a href="javascript:deleteRequest('.$row['client_id'].')" class="ico del">Izbriši</a>
-                   <a href="javascript:sureToApprove('.$row['client_id'].', '.$row['car_name'].')"class="ico edit">Odobri</a>
+                   <a href="javascript:sureToApprove('.$row['client_id'].', '.$row['car_id'].')"class="ico edit">Odobri</a>
                 </td>
 			</tr>
 			</form>
