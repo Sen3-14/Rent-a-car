@@ -29,7 +29,7 @@
             <div class="small-nav">
                 <a href="index.php">Komandna tabla</a>
                 <span>&gt;</span>
-                Zahtevi za zakazivanje
+                Iznajmljena vozila
             </div>
 
             <br />

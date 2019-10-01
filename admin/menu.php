@@ -17,6 +17,7 @@
 			    <li><a href="client_requests.php"><span>Zahtevi za zakazivanje</span></a></li>
 				<li><a href="index.php"><span>Poruke</span></a></li>
 				<li><a href="clients.php"><span>Klijenti</span></a></li>
+				<li><a href="hired.php"><span>Iznajmljena vozila</span></a></li>
 			</ul>
 		</div>
 <?php
