@@ -6,9 +6,9 @@ if(isset($_POST["query"]))
 {
     $search = $_POST["query"];
 	$query = "SELECT * FROM message
-	WHERE client_id LIKE '%".$search."%'";
+	WHERE flag = 1 AND client_id LIKE '%".$search."%'";
 } else {
-    $query = "SELECT * FROM message ORDER BY 'time'";
+    $query = "SELECT * FROM message WHERE flag = 1 ORDER BY 'time'";
 }
 
 $result = $conn->query($query);
