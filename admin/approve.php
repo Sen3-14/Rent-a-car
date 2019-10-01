@@ -19,7 +19,11 @@
 		$row = mysqli_fetch_assoc($sqlquery);
 	    $a=$row['availability'];
 		$b = --$a;
-		$qr = "UPDATE cars SET availability = $b WHERE car_id='$car'";
+		if($b == 0){
+		$qr = "UPDATE cars SET availability = $b, status = 'unavailable' WHERE car_id='$car'";
+		} else {
+			$qr = "UPDATE cars SET availability = $b WHERE car_id='$car'";	
+		}
 		$query3 = $conn->prepare($qr);
 		$query3->execute();
 		if(!$query3) { echo "error 3";}
