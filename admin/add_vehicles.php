@@ -78,7 +78,7 @@ while ($row = $result->fetch_assoc()) {
                                     <td><?php echo $row['capacity'] ?></td>
                                     <td><?php echo $row['availability'] ?></td>
                                     <td><a href="javascript:sureToApprove(<?php echo $row['car_id']; ?>)"
-                                            class="ico del">Izbriši</a><a href="#" class="ico edit">Podesi</a></td>
+                                            class="ico del">Izbriši</a><a href="edit_vehicles.php?id=<?php echo $row['car_id'];?>" class="ico edit">Podesi</a></td>
                                 </tr>
                                 <?php
 }

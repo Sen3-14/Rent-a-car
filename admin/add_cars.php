@@ -64,7 +64,7 @@
 									<input type="file" class="field size1" name="image" required />
 								</p>
 								<p>
-									<span class="req">Broj modela ovog vozila</span>
+									<span class="req">Ukupan broj vozila ovog modela</span>
 									<label>Kapacitet<span>(Obavezno polje)</span></label>
 									<input type="text" class="field size1" name="capacity" required />
 								</p>
@@ -88,14 +88,10 @@
 								$car_type = $_POST['car_type'];
 								$hire_cost = $_POST['hire_cost'];
 								$capacity = $_POST['capacity'];
-<<<<<<< HEAD
-								$qr = "INSERT INTO cars (image, car_name,car_type,hire_cost,capacity,status)
-													VALUES ('$image','$car_name','$car_type','$hire_cost','$capacity','Available')";
-=======
 								$availability = $_POST['capacity'];
 								$qr = "INSERT INTO cars (image, car_name,car_type,hire_cost,capacity,availability,status)
 													VALUES ('$image','$car_name','$car_type','$hire_cost','$capacity','$availability','Available')";
->>>>>>> aef6e0e040f434b710821163989bfe5cf1016318
+
 								$res = $conn->query($qr);
 								if($res === TRUE){
 									echo "<script type = \"text/javascript\">
