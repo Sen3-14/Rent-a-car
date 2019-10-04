@@ -65,7 +65,7 @@ include 'menu.php';
                                 </tr>
                                 <?php
 include '../includes/config.php';
-$select = "SELECT * FROM cars WHERE status = 'Available'";
+$select = "SELECT * FROM cars";
 $result = $conn->query($select);
 while ($row = $result->fetch_assoc()) {
     ?>

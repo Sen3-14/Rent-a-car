@@ -61,11 +61,6 @@
 									<input type="text" class="field size1" name="hire_cost" />
 								</p>
 								<p>
-									<span class="req">Slika</span>
-									<label>Slika vozila </label>
-									<input type="file" class="field size1" name="image" />
-								</p>
-								<p>
 									<span class="req">Ukupan broj vozila ovog modela</span>
 									<label>Kapacitet</label>
 									<input type="text" class="field size1" name="capacity" />
@@ -87,51 +82,37 @@
           $car_id = $_GET['id'];
 
           if(isset($_POST['edit'])){
-              if(isset($_POST['image'])) {
-            $target_path = "../cars/";
-            $target_path = $target_path . basename ($_FILES['image']['name']);
-            if(move_uploaded_file($_FILES['image']['tmp_name'], $target_path)){
-            $image = basename($_FILES['image']['name']);
-            $query1 = "UPDATE cars SET image = '$image' WHERE car_id='$car_id'";
-            $res1 = $conn->query($query1);
-            if ($res1 === FALSE) {echo "<script type = \"text/javascript\">
-                alert(\"Greška prilikom dodavanja slike.\");
-                window.location = (\"add_vehicles.php\")
-                </script>";}
-            }
-          }
 
-            if(isset($_POST['car_name'])){
-              $car_name = $_POST['car_name'];
-              $query2 = "UPDATE cars SET car_name='$car_name' WHERE car_id='$car_id'";
+						$car_name = $_POST['car_name'];
+						$car_type = $_POST['car_type'];
+						$hire_cost = $_POST['hire_cost'];
+						$capacity = $_POST['capacity'];
+						$availability = mysqli_real_escape_string($conn, $_POST['availability']);
+
+
+            if(!empty($car_name)){
+              $query2 = "UPDATE cars SET car_name='$car_name' WHERE car_id='$car_id';";
               $res2 = $conn->query($query2);
             }
 
-            if(isset($_POST['car_type'])){
-              $car_type = $_POST['car_type'];
-              $query3 = "UPDATE cars SET car_type='$car_type' WHERE car_id='$car_id'";
+            if(!empty($car_type)){
+              $query3 = "UPDATE cars SET car_type='$car_type' WHERE car_id='$car_id';";
               $res3 = $conn->query($query3);
             }
 
-            if(isset($_POST['hire_cost'])){
-              $hire_cost = $_POST['hire_cost'];
-              $query4 = "UPDATE cars SET hire_cost ='$hire_cost' WHERE car_id='$car_id'";
+            if(!empty($hire_cost)){
+              $query4 = "UPDATE cars SET hire_cost ='$hire_cost' WHERE car_id='$car_id';";
               $res4 = $conn->query($query4);
             }
 
-            if(isset($_POST['capacity'])){
-              $capacity = $_POST['capacity'];
-              $query5 = "UPDATE cars SET capacity='$capacity' WHERE car_id='$car_id'";
+            if(!empty($capacity)){
+              $query5 = "UPDATE cars SET capacity='$capacity' WHERE car_id='$car_id';";
               $res5 = $conn->query($query5);
              }
 
-            if(isset($_POST['availability'])){
-              $availability = $_POST['availability'];
-              if ($availability == 0) {
-                $query7 = "UPDATE cars SET status='unavailable' WHERE car_id='$car_id'";
-                $res7 = $conn->query($query7);
-              }
-              $query6 = "UPDATE cars SET availability='$availability' WHERE car_id='$car_id'";
+            if(!empty($availability)){
+            
+              $query6 = "UPDATE cars SET availability='$availability' WHERE car_id='$car_id';";
               $res6 = $conn->query($query6);
             }
 
@@ -141,8 +122,7 @@
                   window.location = (\"add_vehicles.php\")
                   </script>";
 
-            }
-            else 'Failed';
+      }
 
         ?>
     </div>
