@@ -1,5 +1,6 @@
 <?php
 	include '../includes/config.php';
+	  $car_id = $_GET['id'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -63,13 +64,15 @@
 								<p>
 									<span class="req">Ukupan broj vozila ovog modela</span>
 									<label>Kapacitet</label>
-									<input type="text" class="field size1" name="capacity" />
+									<input type="number" class="field size1" name="capacity" />
 								</p>
                 <p>
 									<span class="req">Broj dostupnih vozila ovog modela</span>
 									<label>Dostupnost</label>
-									<input type="text" class="field size1" name="availability" />
+									<input type="number" class="field size1" name="availability" />
 								</p>
+								<a href="edit_picture.php?id=<?php echo $car_id; ?>" class="loginbutton1"
+                    style="font-size:150%;">Promeni sliku</a>
 
 						</div>
 
@@ -79,7 +82,7 @@
 
 					</form>
 <?php
-          $car_id = $_GET['id'];
+
 
           if(isset($_POST['edit'])){
 
@@ -87,7 +90,7 @@
 						$car_type = $_POST['car_type'];
 						$hire_cost = $_POST['hire_cost'];
 						$capacity = $_POST['capacity'];
-						$availability = mysqli_real_escape_string($conn, $_POST['availability']);
+						$availability = $_POST['availability'];
 
 
             if(!empty($car_name)){
@@ -111,9 +114,9 @@
              }
 
             if(!empty($availability)){
-            
               $query6 = "UPDATE cars SET availability='$availability' WHERE car_id='$car_id';";
-              $res6 = $conn->query($query6);
+              $res6 = $conn->prepare($query6);
+							$res6->execute();
             }
 
 
