@@ -1,6 +1,5 @@
 <?php
 	include '../includes/config.php';
-	  $car_id = $_GET['id'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -71,8 +70,12 @@
 									<label>Dostupnost</label>
 									<input type="number" class="field size1" name="availability" />
 								</p>
-								<a href="edit_picture.php?id=<?php echo $car_id; ?>" class="loginbutton1"
-                    style="font-size:150%;">Promeni sliku</a>
+								<p>
+									<span class="req">Slika</span>
+									<label>Slika vozila</label>
+									<input type="file" class="field size1" name="image" />
+								</p>
+
 
 						</div>
 
@@ -85,13 +88,23 @@
 
 
           if(isset($_POST['edit'])){
-
+						$car_id = $_GET['id'];
 						$car_name = $_POST['car_name'];
 						$car_type = $_POST['car_type'];
 						$hire_cost = $_POST['hire_cost'];
 						$capacity = $_POST['capacity'];
 						$availability = $_POST['availability'];
 
+						$target_path = "../cars/";
+						$target_path = $target_path . basename ($_FILES['image']['name']);
+
+						if(move_uploaded_file($_FILES['image']['tmp_name'], $target_path)){
+						$image = basename($_FILES['image']['name']);
+						$query1 = "UPDATE cars SET image='$image' WHERE car_id='$car_id';";
+						$res1 = $conn->query($query1);
+					}
+
+					
 
             if(!empty($car_name)){
               $query2 = "UPDATE cars SET car_name='$car_name' WHERE car_id='$car_id';";
@@ -109,15 +122,28 @@
             }
 
             if(!empty($capacity)){
-              $query5 = "UPDATE cars SET capacity='$capacity' WHERE car_id='$car_id';";
-              $res5 = $conn->query($query5);
+								$query5 = "UPDATE cars SET capacity = $capacity, status = 'Available' WHERE car_id='$car_id'";
+								$res5 = $conn->prepare($query5);
+								$res5->execute();
              }
 
+						 if($capacity == 0) {
+							 $query7 = "UPDATE cars SET capacity = $capacity, status = 'unavailable' WHERE car_id='$car_id'";
+							 $res7 = $conn->prepare($query7);
+ 							 $res7->execute();
+						 }
+
             if(!empty($availability)){
-              $query6 = "UPDATE cars SET availability='$availability' WHERE car_id='$car_id';";
-              $res6 = $conn->prepare($query6);
-							$res6->execute();
+								$query6 = "UPDATE cars SET availability = $availability, status = 'Available' WHERE car_id='$car_id'";
+								$res6 = $conn->prepare($query6);
+								$res6->execute();
             }
+
+						if($availability == 0) {
+							$query8 = "UPDATE cars SET availability = $availability, status = 'unavailable' WHERE car_id='$car_id'";
+							$res8 = $conn->prepare($query8);
+							$res8->execute();
+						}
 
 
               echo "<script type = \"text/javascript\">
