@@ -12,7 +12,7 @@
 		$row = mysqli_fetch_assoc($sqlquery);
 			$a=$row['availability'];
 			if ($a == 0) {
-				$qrr = "UPDATE cars SET status = 'Available'";
+				$qrr = "UPDATE cars SET status = 'Available' WHERE car_id='$vozilo'";
 				$qrr1 = $conn->prepare($qrr1);
 				$qrr1->execute();
 			}

@@ -34,9 +34,9 @@ CREATE TABLE IF NOT EXISTS `cars` (
 --
 
 INSERT INTO `cars` (`car_id`, `car_name`, `car_type`, `image`, `hire_cost`, `capacity`, `availability`, `status`) VALUES
-(1, 'Mercedes Benz', 'Coupe', 'car1.jpg', 110000, 5, 5, 'Available'),
-(2, 'Range Rover', 'Mini-SUV', 'car2.jpg', 32000, 6, 6, 'Available'),
-(3, 'Toyota', 'Coupe', 'car3.jpg', 31000, 6, 6, 'Available'),
+(1, 'Mercedes Benz', 'Coupe', 'car1.jpg', 110000, 5, 4, 'Available'),
+(2, 'Range Rover', 'Mini-SUV', 'car2.jpg', 32000, 6, 5, 'Available'),
+(3, 'Toyota', 'Coupe', 'car3.jpg', 31000, 6, 5, 'Available'),
 (5, 'Toyota V8', 'SUV ', 'images (2).jpg', 40000, 5, 5, 'Available'),
 (6, 'Hummer', 'SUV', 'sonkort2.png', 46000, 8, 8, 'Available'),
 (7, 'Wedding Limousine', 'Wedding Limousine', 'images (3).jpg', 28000, 10, 10, 'Available');
@@ -62,10 +62,10 @@ CREATE TABLE IF NOT EXISTS client (
 -- Dumping data for table `client`
 --
 
-INSERT INTO client (`client_id`, `fname`, `email`, `passw`, `phone`, `locat`, `gender`, `car_id`, `status`, `mpesa`) VALUES
-(2, 'felix kiamba', 'kiambafelix@yahoo.com', 30073147, 705053484, 'nairobi', 'Male', 1, 'Approved', 'GTD45H7H6'),
-(3, 'concepter', 'concybogita@gmail.com', 27695131, 707403614, 'kisii', 'Female', 2, 'Approved', 'DJFL870FDK9'),
-(4, 'enock bosire', 'enock@gmail.com', 1234567, 717056766, 'narok', 'Male', 2, 'Approved', 'HJHK678X');
+INSERT INTO client (`client_id`, `fname`, `lname`, `email`, `passw`, `phone`, `locat`, `gender`, `car_id`, `status`, `mpesa`) VALUES
+(1, 'Jovan', 'Jovancic', 'jovan@mail.com', 12345, 705053484, 'Nis', 'Male', 1, 'Approved', 'GTD45H7H6'),
+(2, 'Dusan', 'Ilic', 'dusan@mail.com', 12345, 707403614, 'Pozarevac', 'Male', 2, 'Approved', 'DJFL870FDK9'),
+(3, 'Milan', 'Petrovic', 'milan@mail.com', 12345, 717056766, 'Trosarina', 'Male', 3, 'Approved', 'HJHK678X');
 
 -- --------------------------------------------------------
 
