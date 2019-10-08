@@ -8,13 +8,6 @@ CREATE TABLE IF NOT EXISTS `admin` (
     PRIMARY KEY (`admin_id`)
 )  ENGINE=INNODB DEFAULT CHARSET=LATIN1 AUTO_INCREMENT=2;
 
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`admin_id`, `uname`, `pass`) VALUES
-(1, 'admin', 'admin');
-
 -- --------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `cars` (

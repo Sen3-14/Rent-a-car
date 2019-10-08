@@ -163,14 +163,7 @@
 </div>
 </div>
 
-<div id="footer">
-<div class="shell">
-<span class="left">&copy; <?php echo date("Y");?></span>
-<span class="right">
-  </a>
-</span>
-</div>
-</div>
+
 
 </body>
 </html>

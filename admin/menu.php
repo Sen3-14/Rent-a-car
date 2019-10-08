@@ -1,12 +1,12 @@
 <?php
 	session_start();
-      //if(isset($_SESSION['status-admin']) == 1){
+      if(isset($_SESSION['status-admin']) == 1){
 ?>
 <div id="top">
 			<h1><a href="#">Administrator</a></h1>
 			<div id="top-navigation">
 				Zdravo
-			<?php // <a href="#"><strong><?php echo $_SESSION['user']; </strong></a> ?>
+			<a href="#"><strong><?php echo $_SESSION['user']; ?></strong></a>
 				<span>|</span>
 				<a href="logout.php">Odjavi se</a>
 			</div>
@@ -22,10 +22,8 @@
 			</ul>
 		</div>
 <?php
-	  /*}
-
-	  else{
-		  header("Location: ../index.php");
-		  exit();
-	  }*/
+} else {
+	header("Location: ../index.php");
+	exit();
+}
 ?>
