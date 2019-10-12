@@ -24,9 +24,9 @@
       $mail->Host = 'smtp.gmail.com';
       $mail->Port = '465';
       $mail->isHTML();
-      $mail->Username = 'dulee797@gmail.com';
-      $mail->Password = '';
-      $mail->SetFrom('dulee797@gmail.com');
+      $mail->Username = 'jovan.jovancic2@gmail.com';
+      $mail->Password = 'Perfectworld2';
+      $mail->SetFrom('jovan.jovancic2@gmail.com');
       $mail->Subject = 'Admin tim Rent-a-car';
       $mail->Body = $mesg;
       $mail->AddAddress($mailTo);

@@ -5,8 +5,8 @@ $output = '';
 if(isset($_POST["query"]))
 {
     $search = $_POST["query"];
-	$query = "SELECT * FROM client WHERE client.fname LIKE '%".$search."%' 
-    OR client.lname LIKE '%".$search."%' 
+	$query = "SELECT * FROM client WHERE client.fname LIKE '%".$search."%'
+    OR client.lname LIKE '%".$search."%'
     OR client.email LIKE '%".$search."%'
     OR client.locat LIKE '%".$search."%'
     OR client.phone LIKE '%".$search."%'";
@@ -29,7 +29,7 @@ if(mysqli_num_rows($result) > 0)
                             <th>E-mail</th>
                             <th>Telefon</th>
                             <th>Mesto</th>
-                            <th>MPESA</th>
+                            <th>Broj racuna</th>
 							<th>Kontrole</th>
 						</tr>';
 	while($row = mysqli_fetch_array($result))
@@ -43,7 +43,7 @@ if(mysqli_num_rows($result) > 0)
                 <td>'.$row["phone"].'</td>
                 <td>'.$row["locat"].'</td>
                 <td>'.$row["mpesa"].'</td>
-                
+
                 <td>
                    <a href="javascript:deleteRequest('.$row['client_id'].')" class="ico del">Izbriši</a>
                 </td>
